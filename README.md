@@ -16,6 +16,10 @@ Extract the complete ZIP, keep all files together, and open
 - Optional remembered originals folder in supporting browsers
 - Automatic AttribDB and AttribDB Gameplay presets
 - Validation before imported BIN/VLT pairs replace the active session
+- Compact evidence controls and a Research Mode drawer for maintaining field
+  notes, confidence, increase/decrease behavior, and sources
+- Browser-local research autosave with JSON backup and Sheet-compatible CSV
+  import/export
 - Numeric, Boolean, array, vector, matrix, text, and curve viewers/editors
 - Original-versus-working comparison and per-value revert
 - Save All export without overwriting imported files
