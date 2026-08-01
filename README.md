@@ -22,10 +22,48 @@ Extract the complete ZIP, keep all files together, and open
   import/export
 - Numeric, Boolean, array, vector, matrix, text, and curve viewers/editors
 - Original-versus-working comparison and per-value revert
-- Save All export without overwriting imported files
+- Dedicated Changes workspace grouped by folder and file, with original-to-current summaries and exact field-level revert
+- Navigator search for files and schema fields, modified/evidence filters, and
+  visible change counts
+- Keyboard-accessible tree navigation with remembered folder expansion and
+  sidebar sizing
+- Standardized scalar, Boolean, vector, matrix, and read-only text field rows
+  with baseline, revert, deviation, and validation feedback
+- Compound Boolean, float, vector, and fixed eight-point curve arrays with
+  collapsed summaries, validated editors, original comparisons, and group/item
+  revert controls
+- Preset-derived **Export Mod Files** without overwriting imported files
 - Fully client-side operation
 
 ## Start editing
+
+Open the editor and follow the setup surface: choose AttribDB or AttribDB
+Gameplay, verify the matching original BIN/VLT pair, then optionally load an
+existing mod. The application bar identifies the current project and
+clean/unsaved state; infrequent preset, originals, mod-loading, and Research
+actions are grouped under **Project & tools**. Use **Export Mod Files** to
+download the modified pair.
+
+After loading a project, search the navigator by logical file or field name.
+Use the modified-only and evidence filters together, inspect the **Changes**
+workspace to review fields modified from the verified originals, open an exact
+field in the editor, or revert that complete field. Exporting mod files updates
+the saved snapshot but leaves modifications visible in Changes until they match
+the originals. Use Previous/Next controls to move between matching editor rows.
+
+Ordinary fields share a consistent identity/value/baseline/action layout.
+Invalid or non-finite numeric input is rejected before it reaches the working
+buffers; integer machine bounds are enforced and any clamping is communicated.
+Float32 display preserves signed zero, signed infinity, and NaN payload bits;
+applying a zero-percent adjustment to `-0` does not normalize it to `+0`.
+Compound arrays preserve their eight-byte headers and use the same validation,
+modified-count, baseline, and revert behavior. Curve fields show current and
+original lines with textual labels; unusual bounds or descending points are
+reported as warnings without silently rewriting the data.
+
+JSON imports validate all mapped values before changing a file. A current-file
+import is all-or-nothing; folder imports keep valid files while reporting each
+rejected file without partially applying it.
 
 Optionally choose **Remember Originals Folder** and select a root folder laid
 out like this:
@@ -41,10 +79,8 @@ allows. Otherwise, choose AttribDB or AttribDB Gameplay and manually select the
 matching pair from your own FIFA 16 installation or backup. Files are verified
 locally. The release does not include FIFA database files.
 
-## Current limitation
-
-Modified JSON export is not reliable in this preview. The main BIN/VLT editing
-and Save All workflow is separate from that feature.
+Folder JSON ZIP export works offline and is generated locally; no internet
+connection is required for any editor runtime feature.
 
 See [SUPPORT.md](SUPPORT.md) when reporting a problem.
 
