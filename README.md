@@ -33,6 +33,8 @@ Extract the complete ZIP, keep all files together, and open
   collapsed summaries, validated editors, original comparisons, and group/item
   revert controls
 - Preset-derived **Export Mod Files** without overwriting imported files
+- Dependency-free accessible tooltips for static and dynamically rebuilt controls,
+  with a persistent **Hover tooltips** preference (off by default)
 - Fully client-side operation
 
 ## Start editing
@@ -81,6 +83,14 @@ locally. The release does not include FIFA database files.
 
 Folder JSON ZIP export works offline and is generated locally; no internet
 connection is required for any editor runtime feature.
+
+Actions, inputs, status badges, and technical controls can provide concise
+supplementary tooltips on hover and keyboard focus. They are off by default;
+open **Project & tools → Preferences** to enable **Hover tooltips**. The choice
+is remembered locally without requiring a reload and works when the HTML is
+opened directly through `file://`. The same tooltip behavior works after the
+navigator, editor, Changes, and Research surfaces are rebuilt.
+Hover tooltips appear after 1000 ms; keyboard-focus tooltips appear after 200 ms.
 
 See [SUPPORT.md](SUPPORT.md) when reporting a problem.
 
