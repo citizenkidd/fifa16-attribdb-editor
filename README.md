@@ -7,8 +7,9 @@ Offline browser editor for FIFA 16 `attribdb` and `attribdbgameplay` files.
 Download the current package from the
 [GitHub Releases page](https://github.com/citizenkidd/fifa16-attribdb-editor/releases).
 
-Extract the complete ZIP, keep all files together, and open
-`attribdb_editor_final_v2.html` in a modern desktop browser.
+Extract the complete ZIP, keep all files together (including
+`editor-styles.css` beside `attribdb_editor_final_v2.html`), and open the HTML
+file in a modern desktop browser.
 
 ## Features
 
@@ -35,6 +36,10 @@ Extract the complete ZIP, keep all files together, and open
 - Preset-derived **Export Mod Files** without overwriting imported files
 - Dependency-free accessible tooltips for static and dynamically rebuilt controls,
   with a persistent **Hover tooltips** preference (off by default)
+- Modular dependency-free architecture: the runtime is split into
+  TypeScript-checked UMD service/controller modules with no build step or
+  runtime network dependency
+- Strict staged field-value validation before any byte is written
 - Fully client-side operation
 
 ## Start editing
@@ -57,7 +62,9 @@ Ordinary fields share a consistent identity/value/baseline/action layout.
 Invalid or non-finite numeric input is rejected before it reaches the working
 buffers; integer machine bounds are enforced and any clamping is communicated.
 Float32 display preserves signed zero, signed infinity, and NaN payload bits;
-applying a zero-percent adjustment to `-0` does not normalize it to `+0`.
+applying a zero-percent adjustment to `-0` does not normalize it to `+0`. A
+float32 field whose value is positive zero renders as `0` in the numeric input
+instead of a blank field; the semantic `+0`/`-0` formatting is preserved.
 Compound arrays preserve their eight-byte headers and use the same validation,
 modified-count, baseline, and revert behavior. Curve fields show current and
 original lines with textual labels; unusual bounds or descending points are
