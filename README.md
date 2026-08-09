@@ -41,6 +41,9 @@ file in a modern desktop browser.
   runtime network dependency
 - Strict staged field-value validation before any byte is written
 - Fully client-side operation
+- Generated Cheat Engine Gameplay Editor table for mapped FIFA 16 runtime Float
+  fields; see [GAMEPLAY-EDITOR.md](GAMEPLAY-EDITOR.md) for prerequisites and
+  the normal workflow
 
 ## Start editing
 
@@ -90,6 +93,11 @@ locally. The release does not include FIFA database files.
 
 Folder JSON ZIP export works offline and is generated locally; no internet
 connection is required for any editor runtime feature.
+
+The extracted release also contains a `Gameplay Editor/` folder with the
+generated `fifa16-gameplay-editor.ct`, its matching standalone Lua backend, and
+an end-user guide. The Cheat Engine table embeds the Lua backend and is normally
+the only file that needs to be opened for that workflow.
 
 Actions, inputs, status badges, and technical controls can provide concise
 supplementary tooltips on hover and keyboard focus. They are off by default;
